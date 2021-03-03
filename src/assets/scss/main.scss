@@ -1,3 +1,5 @@
+@import './helper';
+
 body {
   main {margin: 0;}
 }
@@ -13,18 +15,25 @@ body {
       color: #000000;
     }
   }
-  main {
+  content {
     background-color: #f8f4f3;
     display: block;
   }
 }
 
 .row {
-  max-width: 765px;
-  padding: 20px;
-  margin: 0 auto;
+  margin: 0 -20px;
   display: flex;
   flex-flow: row wrap;
+  &.space-between {
+    justify-content: space-between;
+    margin: 0;
+    .pwa-col-6 {
+      display: block;
+      flex: 0 0 calc(50% - 10px);
+      max-width: calc(50% - 10px);
+    }
+  }
 }
 .pwa-col-6 {
   display: block;
@@ -37,6 +46,9 @@ body {
   display: inline-block;
   width: 100%;
   margin: 20px 0;
+  img {
+    width: 100%;
+  }
 }
 
 .app-address {
@@ -47,4 +59,14 @@ body {
   p {
     margin: 0;
   }
+}
+.pwa-content-box {
+  max-width: 765px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.price-red {
+  color: #bd2d28;
+  font-weight: 600;
 }
