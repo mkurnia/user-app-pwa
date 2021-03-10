@@ -79,7 +79,18 @@ export default {
     return {
       loading: false,
       param: this.$route.params.id,
-      category: ["All", "Minuman", "Makanan", "Masker", "Snack", "Medic", "Susu", "Mie", "Sayur", "Dll"],
+      category: [
+        "All",
+        "Minuman",
+        "Makanan",
+        "Masker",
+        "Snack",
+        "Medic",
+        "Susu",
+        "Mie",
+        "Sayur",
+        "Dll"
+      ],
       selectedCategory: "All"
     };
   },
