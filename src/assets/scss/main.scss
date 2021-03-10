@@ -11,15 +11,10 @@
   font-family: 'Inter', sans-serif;
 */
 
-html, body, #app {
-  font-family: 'Sora', 'Inter', sans-serif;
-}
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Sora', sans-serif;
-}
-p, span {
-  font-family: 'Inter', sans-serif;
-}
+html, body, #app {font-family: 'Sora', 'Inter', sans-serif;}
+h1, h2, h3, h4, h5, h6 {font-family: 'Sora', sans-serif;}
+p, span {font-family: 'Inter', sans-serif;}
+.ant-btn {font-family: 'Sora', sans-serif;}
 .ant-card-body {padding: 16px;}
 .ant-page-header {padding: 16px;}
 
@@ -98,5 +93,20 @@ p, span {
       max-width: 768px;
       margin: 0 auto
     }
+  }
+  .ant-layout-footer {
+    background-color: $red-color;
+    text-align: center;
+    padding: 11px 13px;
+    h5 {
+      font-size: 12px;
+      color: $white-color;
+      margin: 0;
+    }
+  }
+  .touch-menu-category {
+    overflow: scroll;
+    padding-bottom: 16px;
+    width: 100%;
   }
 }

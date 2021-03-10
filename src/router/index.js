@@ -1,42 +1,27 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Home from "../views/Home.vue";
+import Home from "../views/Home.vue";
 import Catalog from "../views/Catalog.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "Home",
-  //   component: Home
-  // },
   {
     path: "/",
-    name: "Catalog",
-    component: Catalog,
+    name: "Home",
+    component: Home,
     meta: {
       layout: "AppLayoutHome"
     }
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    path: "/catalog/:id",
+    name: "Detail Vending Machine",
+    component: Catalog,
+    meta: {
+      layout: "AppLayoutCatalog"
+    }
   }
-  // {
-  //   path: "/catalog/:id",
-  //   name: "Catalog",
-  //   // route level code-splitting
-  //   // this generates a separate chunk (catalog.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () =>
-  //     import(/* webpackChunkName: "catalog" */ "../views/Catalog.vue")
-  // }
 ];
 
 const router = new VueRouter({
