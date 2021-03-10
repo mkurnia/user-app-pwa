@@ -1,0 +1,102 @@
+/* Antdv */
+@import "~ant-design-vue/dist/antd.css";
+
+/* margin, padding, etc */
+@import './helper';
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&family=Sora:wght@100;400;600;700&display=swap');
+/*
+  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
+*/
+
+html, body, #app {
+  font-family: 'Sora', 'Inter', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+}
+p, span {
+  font-family: 'Inter', sans-serif;
+}
+.ant-card-body {padding: 16px;}
+.ant-page-header {padding: 16px;}
+
+/* Skeleton */
+.touch-skeleton-w-img {
+  .ant-skeleton-content {
+    .ant-skeleton-title {
+      width: 100% !important;
+      height: 200px;
+    }
+  }
+}
+
+/* Status */
+.touch-status {
+  padding-left: 20px;
+  position: relative;
+  font-size: 14px;
+  &::before {
+    position: absolute;
+    top: calc(50% - 4px);
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    content: "";
+  }
+  &.status-online {
+    color: $success-color;
+    &::before {
+      background: $success-color;
+    }
+  }
+}
+
+/* Atlas */
+.touch-atlas {
+  .ant-layout-header {
+    background-color: $white-color;
+    height: auto;
+    padding: 0;
+    .touch-page-heading {
+      max-width: 768px;
+      margin: 0 auto;
+      .ant-page-header-back {
+        margin-right: 32px;
+      }
+      .ant-page-header-back-button a {
+        color: $black-color;
+      }
+      .ant-page-header-heading-title {
+        h4 {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .ant-layout-content {
+    background-color: $light-grey-color;
+  }
+  .touch-location {
+    h3 {font-weight: 600;}
+  }
+  .touch-catalog-list {
+    a {
+      display: block;
+      height: 100%
+    }
+    .ant-card-meta-detail {
+      span {font-weight: 600;}
+    }
+  }
+  .touch-location,
+  .touch-catalog-list {
+    .ant-card {
+      max-width: 768px;
+      margin: 0 auto
+    }
+  }
+}
