@@ -14,7 +14,7 @@ const routes = [
     meta: {
       layout: "AppLayoutHome"
     }
-  }
+  },
   {
     path: "/catalog/:id",
     name: "Detail Vending Machine",
