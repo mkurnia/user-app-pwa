@@ -13,12 +13,12 @@
           <label class="mb-10">Kode VM</label>
           <a-input size="large" placeholder="Contoh: SKN02***" />
         </div>
-        <p class="touch-code-link">
+        <p class="touch-code-link mb-20">
           Belum nemu kode uniknya? <a href="#">Klik disini</a>
         </p>
         <a-button
           type="warning"
-          class="ant-btn-warning font-16 touch-home-button"
+          class="ant-btn-warning font-16 touch-home-button mt-20"
           disabled
         >
           Lanjut

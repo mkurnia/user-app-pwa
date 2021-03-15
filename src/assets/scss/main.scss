@@ -155,12 +155,21 @@ p, span {font-family: 'Inter', sans-serif;}
   .touch-home {
     height: 100%;
     background: linear-gradient(162.97deg, $error-color 45.83%, #BA1B27 96.15%);
+    &::before {
+      content: "";
+      background-image: url("../../../public/img/bg-1.png");
+      background-repeat: repeat no-repeat;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
     .ant-layout-header,
     .ant-layout-content,
     .ant-layout-footer {
       background: unset;
       .ant-card {background: unset;}
     }
+    .ant-layout-content {overflow: scroll;}
     .touch-home-content {
       h1 {
         font-size: 30px;
