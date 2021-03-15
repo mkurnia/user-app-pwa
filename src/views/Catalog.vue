@@ -1,17 +1,15 @@
 <template>
   <a-layout-content>
-    <a-affix>
-      <div style="background:#FFFFFF;" class="touch-location">
-        <a-card :bordered="false">
-          <h3 class="font-18">D'Arcici Hotel Sunter</h3>
-          <p class="text-grey font-14">
-            Jl. Sunter Permai Raya No.A1, RT.2/RW.12, Sunter Agung, Paradise,
-            Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14350
-          </p>
-          <span class="touch-status status-online">Online</span>
-        </a-card>
-      </div>
-    </a-affix>
+    <div style="background:#FFFFFF;" class="touch-location">
+      <a-card :bordered="false">
+        <h3 class="font-18">D'Arcici Hotel Sunter</h3>
+        <p class="text-grey font-14">
+          Jl. Sunter Permai Raya No.A1, RT.2/RW.12, Sunter Agung, Paradise, Kota
+          Jkt Utara, Daerah Khusus Ibukota Jakarta 14350
+        </p>
+        <span class="touch-status status-online">Online</span>
+      </a-card>
+    </div>
     <div class="touch-catalog-list">
       <a-card :bordered="false" style="background: none;">
         <a-space class="touch-menu-category">

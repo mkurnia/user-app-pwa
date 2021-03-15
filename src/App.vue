@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="touch-atlas">
     <AppLayout>
       <router-view />
     </AppLayout>

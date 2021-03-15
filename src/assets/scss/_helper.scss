@@ -30,6 +30,10 @@ $black-color: #2E2E38;
 .text-grey {color: $grey-color;}
 .text-black {color: $black-color;}
 
+.text-left {text-align: left;}
+.text-right {text-align: right;}
+.text-center {text-align: center;}
+
 .ant-btn-danger {
   background-color: $error-color;
   color: $white-color;

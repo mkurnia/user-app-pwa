@@ -7,6 +7,7 @@ import Antd from "ant-design-vue";
 import VueCurrencyFilter from "vue-currency-filter";
 import AppLayout from "@/layouts/AppLayout";
 
+import "ant-design-vue/dist/antd.css";
 import "./assets/scss/main.scss";
 
 Vue.component("AppLayout", AppLayout);

@@ -1,5 +1,5 @@
 /* Antdv */
-@import "~ant-design-vue/dist/antd.css";
+// @import "~ant-design-vue/dist/antd.css";
 
 /* margin, padding, etc */
 @import './helper';
@@ -52,6 +52,8 @@ p, span {font-family: 'Inter', sans-serif;}
 
 /* Atlas */
 .touch-atlas {
+  background-color: $light-grey-color;
+  height: inherit;
   .ant-layout-header {
     background-color: $white-color;
     height: auto;
@@ -59,6 +61,7 @@ p, span {font-family: 'Inter', sans-serif;}
     .touch-page-heading {
       max-width: 768px;
       margin: 0 auto;
+      padding: 12px 16px;
       .ant-page-header-back {
         margin-right: 32px;
       }
@@ -72,9 +75,6 @@ p, span {font-family: 'Inter', sans-serif;}
       }
     }
   }
-  .ant-layout-content {
-    background-color: $light-grey-color;
-  }
   .touch-location {
     h3 {font-weight: 600;}
   }
@@ -83,15 +83,57 @@ p, span {font-family: 'Inter', sans-serif;}
       display: block;
       height: 100%
     }
-    .ant-card-meta-detail {
-      span {font-weight: 600;}
+    .ant-card {
+      border-radius: 8px;
+      overflow: hidden;
     }
+  }
+  .ant-card-meta-detail {
+    span {font-weight: 700;}
   }
   .touch-location,
   .touch-catalog-list {
     .ant-card {
       max-width: 768px;
       margin: 0 auto
+    }
+  }
+  .touch-checkout {
+    box-shadow: inset 0px -1px 0px #DEDEDF;
+    .ant-card {
+      max-width: 768px;
+      margin: 0 auto;
+      box-shadow: inset 0px -1px 0px #DEDEDF;
+    }
+    &.touch-info {
+      box-shadow: inset 0px 1px 0px #DEDEDF, inset 0px -1px 0px #DEDEDF;
+      .ant-card-body {
+        padding: 14px 16px;
+        box-shadow: inset 0px 1px 0px #DEDEDF, inset 0px -1px 0px #DEDEDF;
+      }
+    }
+  }
+  .touch-checkout-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: inset 0px 1px 0px #DFDEDF;
+    .ant-card {
+      max-width: 768px;
+      margin: 0 auto;
+      box-shadow: inset 0px 1px 0px #DFDEDF;
+      .ant-card-body {
+        padding: 12px 16px;
+      }
+      p, span {
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+    .ant-btn {
+      width: 100%;
+      border-radius: 0;
+      height: 56px;
     }
   }
   .ant-layout-footer {
