@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import TouchlessHome from "../views/TouchlessHome.vue";
 import Catalog from "../views/Catalog.vue";
 import Checkout from "../views/Checkout.vue";
 
@@ -10,11 +10,11 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: TouchlessHome,
     meta: {
       layout: "AppLayoutHome"
     }
-  },
+  }
   {
     path: "/catalog/:id",
     name: "Detail Vending Machine",

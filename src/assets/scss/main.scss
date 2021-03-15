@@ -91,6 +91,8 @@ p, span {font-family: 'Inter', sans-serif;}
   .ant-card-meta-detail {
     span {font-weight: 700;}
   }
+  .touch-home-header,
+  .touch-home-content,
   .touch-location,
   .touch-catalog-list {
     .ant-card {
@@ -99,17 +101,17 @@ p, span {font-family: 'Inter', sans-serif;}
     }
   }
   .touch-checkout {
-    box-shadow: inset 0px -1px 0px #DEDEDF;
+    box-shadow: inset 0px -1px 0px $disabled-color;
     .ant-card {
       max-width: 768px;
       margin: 0 auto;
-      box-shadow: inset 0px -1px 0px #DEDEDF;
+      box-shadow: inset 0px -1px 0px $disabled-color;
     }
     &.touch-info {
-      box-shadow: inset 0px 1px 0px #DEDEDF, inset 0px -1px 0px #DEDEDF;
+      box-shadow: inset 0px 1px 0px $disabled-color, inset 0px -1px 0px $disabled-color;
       .ant-card-body {
         padding: 14px 16px;
-        box-shadow: inset 0px 1px 0px #DEDEDF, inset 0px -1px 0px #DEDEDF;
+        box-shadow: inset 0px 1px 0px $disabled-color, inset 0px -1px 0px $disabled-color;
       }
     }
   }
@@ -137,7 +139,6 @@ p, span {font-family: 'Inter', sans-serif;}
     }
   }
   .ant-layout-footer {
-    background-color: $red-color;
     text-align: center;
     padding: 11px 13px;
     h5 {
@@ -150,5 +151,59 @@ p, span {font-family: 'Inter', sans-serif;}
     overflow: scroll;
     padding-bottom: 16px;
     width: 100%;
+  }
+  .touch-home {
+    height: 100%;
+    background: linear-gradient(162.97deg, $error-color 45.83%, #BA1B27 96.15%);
+    .ant-layout-header,
+    .ant-layout-content,
+    .ant-layout-footer {
+      background: unset;
+      .ant-card {background: unset;}
+    }
+    .touch-home-content {
+      h1 {
+        font-size: 30px;
+        line-height: 42px;
+        letter-spacing: 0.02em;
+        color: $white-color;
+      }
+      p {
+        color: $white-color;
+        line-height: 24px;
+        margin-bottom: 24px;
+      }
+      label {
+        font-family: 'Sora', sans-serif;
+        font-size: 16px;
+        color: $white-color;
+        display: block;
+      }
+      input {
+        border-radius: 6px;
+        &:active, &:focus, &:hover {
+          border-color: $yellow-color;
+          box-shadow: 0px 0px 8px $yellow-color;
+        }
+      }
+      .form-group {margin-bottom: 24px;}
+      .touch-code-link {
+        color: $yellow-color;
+        text-align: center;
+        a {color: $yellow-color;}
+      }
+      .touch-home-button {
+        width: 100%;
+        color: $red-color;
+        height: 56px;
+        &:disabled {
+          background-color: $black-color;
+          border-color: $black-color;
+          opacity: 0.2;
+          box-shadow: 0px 8px 16px rgba(46, 46, 56, 0.12);
+          color: $white-color;
+        }
+      }
+    }
   }
 }

@@ -34,9 +34,21 @@ $black-color: #2E2E38;
 .text-right {text-align: right;}
 .text-center {text-align: center;}
 
+.ant-btn {border-radius: 6px;}
 .ant-btn-danger {
   background-color: $error-color;
   color: $white-color;
+}
+.ant-btn-warning {
+  background-color: $yellow-color;
+  border-color: $yellow-color;
+  color: $white-color;
+  &:hover {
+    background-color: $yellow-color;
+    border-color: $yellow-color;
+    opacity: 0.9;
+    color: $white-color;
+  }
 }
 .ant-btn-link {
   background-color: unset;
