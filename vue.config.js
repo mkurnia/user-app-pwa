@@ -1,3 +1,5 @@
+const vueEnverywere = require('vue-enverywhere');
+
 module.exports = {
   publicPath: "./",
 
@@ -9,5 +11,11 @@ module.exports = {
     manifestOptions: {
       background_color: "#42b983"
     }
-  }
+  },
+
+  configureWebpack: {
+    plugins: [
+      new vueEnverywere({ filename: "env-vars.js" })
+    ],
+  },
 };

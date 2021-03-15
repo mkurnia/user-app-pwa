@@ -1,7 +1,7 @@
 <template>
-  <a-layout class="touch-home">
+  <a-layout class="touchless-home">
     <a-layout-header>
-      <div class="touch-home-header">
+      <div class="touchless-home-header">
         <a-card :bordered="false">
           <img src="../../public/img/icons/atlas-logo.png" alt="Logo" />
         </a-card>

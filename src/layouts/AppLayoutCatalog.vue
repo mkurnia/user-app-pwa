@@ -2,7 +2,7 @@
   <a-layout>
     <a-affix>
       <a-layout-header>
-        <a-page-header class="touch-page-heading" @back="() => null">
+        <a-page-header class="touchless-page-heading" @back="() => null">
           <template slot="backIcon">
             <router-link to="/"><a-icon type="arrow-left"/></router-link>
           </template>
