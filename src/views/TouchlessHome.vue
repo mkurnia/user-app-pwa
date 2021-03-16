@@ -21,7 +21,7 @@
           />
         </div>
         <p class="touchless-code-link mb-20">
-          Belum nemu kode uniknya? <a href="#">Klik disini</a>
+          Belum nemu kode uniknya? <router-link to="/">Klik disini</router-link>
         </p>
         <a-button
           type="warning"
@@ -57,10 +57,7 @@ export default {
 
         this.$router.push(`catalog/${this.vmCode}`);
       } catch (error) {
-        this.$message.error(
-          "Kode VM tidak terdaftar, pastikan kode yang anda input benar.",
-          10
-        );
+        this.$router.push("vm-not-found");
         throw error;
       } finally {
         this.loading = false;

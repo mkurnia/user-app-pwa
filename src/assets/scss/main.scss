@@ -117,6 +117,7 @@ p, span {font-family: 'Inter', sans-serif;}
   .ant-card-meta-detail {
     span {font-weight: 700;}
   }
+  .touchless-container,
   .touchless-home-header,
   .touchless-home-content,
   .touchless-location,
@@ -246,6 +247,33 @@ p, span {font-family: 'Inter', sans-serif;}
           color: $white-color;
         }
       }
+    }
+  }
+}
+
+.defaut-layout {
+  background-color: $white-color;
+  height: 100%;
+  &.ant-layout {
+    background-color: $white-color;
+    .touchless-container {padding-top: 80px;}
+    img {margin-bottom: 60px;}
+    h3 {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.01em;
+      margin-bottom: 100px;
+    }
+    a {
+      text-decoration: underline;
+      line-height: 20px;
+      letter-spacing: 0.01em;
     }
   }
 }

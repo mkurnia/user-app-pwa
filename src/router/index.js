@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import TouchlessHome from "../views/TouchlessHome.vue";
+import VmNotFound from "../views/VmNotFound.vue";
+import Success from "../views/Success.vue";
 import Catalog from "../views/Catalog.vue";
 import Checkout from "../views/Checkout.vue";
 
@@ -12,7 +14,26 @@ const routes = [
     name: "Home",
     component: TouchlessHome,
     meta: {
-      layout: "AppLayoutHome"
+      layout: "AppLayoutHome",
+      class: "home-layout"
+    }
+  },
+  {
+    path: "/success/:id",
+    name: "Success",
+    component: Success,
+    meta: {
+      layout: "AppLayoutDefault",
+      class: "defaut-layout"
+    }
+  },
+  {
+    path: "/vm-not-found",
+    name: "VM Not Found",
+    component: VmNotFound,
+    meta: {
+      layout: "AppLayoutDefault",
+      class: "defaut-layout"
     }
   },
   {
@@ -20,7 +41,8 @@ const routes = [
     name: "Detail Vending Machine",
     component: Catalog,
     meta: {
-      layout: "AppLayoutCatalog"
+      layout: "AppLayoutCatalog",
+      class: "catalog-layout"
     }
   },
   {
@@ -28,7 +50,8 @@ const routes = [
     name: "Detail Pesanan",
     component: Checkout,
     meta: {
-      layout: "AppLayoutCatalog"
+      layout: "AppLayoutCatalog",
+      class: "checkout-layout"
     }
   }
 ];

@@ -1,6 +1,6 @@
 <template>
   <a-layout-content>
-    <div style="background:#FFFFFF;" class="touch-checkout mb-10">
+    <div style="background:#FFFFFF;" class="touchless-checkout mb-10">
       <a-card :bordered="false">
         <a-card-meta>
           <a-avatar
@@ -17,15 +17,7 @@
         </a-card-meta>
       </a-card>
     </div>
-    <div style="background:#FFFFFF;" class="touch-checkout touch-info mb-10">
-      <a-card :bordered="false">
-        <a-row>
-          <a-col :span="12"><p class="m-0">Diskon Produk</p></a-col>
-          <a-col :span="12" class="text-right"><p class="m-0">-</p></a-col>
-        </a-row>
-      </a-card>
-    </div>
-    <div style="background:#FFFFFF;" class="touch-checkout-footer">
+    <div style="background:#FFFFFF;" class="touchless-checkout-footer">
       <a-card :bordered="false">
         <a-row>
           <a-col :span="12"><p class="m-0">Total</p></a-col>

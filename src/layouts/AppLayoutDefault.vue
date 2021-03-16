@@ -1,5 +1,15 @@
 <template>
-  <div>
+  <a-layout :class="`${classLayout}`">
     <slot />
-  </div>
+  </a-layout>
 </template>
+<script>
+export default {
+  name: "AppLayoutDefault",
+  data() {
+    return {
+      classLayout: this.$route.meta.class
+    };
+  }
+};
+</script>

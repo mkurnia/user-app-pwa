@@ -14,9 +14,6 @@
       <a-divider class="m-0" />
     </a-affix>
     <slot />
-    <!-- <a-layout-footer>
-      <h5>© ATLASVM 2021. All Rights Reserved</h5>
-    </a-layout-footer> -->
   </a-layout>
 </template>
 

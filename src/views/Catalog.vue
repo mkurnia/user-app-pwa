@@ -1,18 +1,18 @@
 <template>
   <a-layout-content>
-    <div style="background:#FFFFFF;" class="touch-location">
+    <div style="background:#FFFFFF;" class="touchless-location">
       <a-card :bordered="false">
         <h3 class="font-18">D'Arcici Hotel Sunter</h3>
         <p class="text-grey font-14">
           Jl. Sunter Permai Raya No.A1, RT.2/RW.12, Sunter Agung, Paradise, Kota
           Jkt Utara, Daerah Khusus Ibukota Jakarta 14350
         </p>
-        <span class="touch-status status-online">Online</span>
+        <span class="touchless-status status-online">Online</span>
       </a-card>
     </div>
-    <div class="touch-catalog-list">
+    <div class="touchless-catalog-list">
       <a-card :bordered="false" style="background: none;">
-        <a-space class="touch-menu-category">
+        <a-space class="touchless-menu-category">
           <a-button
             :class="[
               selectedCategory === item ? 'ant-btn-danger' : 'ant-btn-link'
@@ -58,7 +58,7 @@
           <a-col :span="12" v-for="(item, index) in 10" :key="index">
             <a-card hoverable class="mb-20" align="left">
               <a-skeleton
-                class="touch-skeleton-w-img"
+                class="touchless-skeleton-w-img"
                 :paragraph="{ rows: 2 }"
                 active
               />
