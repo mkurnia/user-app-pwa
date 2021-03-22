@@ -1,11 +1,16 @@
 <template>
   <a-layout-content class="touchless-default-layout">
-    <div class="touchless-container">
+    <div class="touchless-container pt-0">
       <a-card :bordered="false" class="text-center pl-16 pr-16">
-        <img src="../../public/img/illus-vm-salah.png" alt="VM Not Found" />
-        <h3 class="mb-16">Kode VM Tidak Ditemukan</h3>
+        <img
+          src="../../public/img/oops.png"
+          alt="Page Not Found"
+          class="mb-0"
+        />
+        <h3 class="mb-16">Oops! Kamu nyasar?</h3>
         <p>
-          Pastikan kode pada mesin vending yang kamu masukan sudah sesuai ya!
+          Jangan bersedih hati, mending jajan aja dulu di ATLAS biar ngga nyasar
+          lagi :)
         </p>
         <router-link to="/" class="text-cyan font-12">
           Back to Home Page

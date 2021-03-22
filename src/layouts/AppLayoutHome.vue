@@ -3,7 +3,7 @@
     <a-layout-header>
       <div class="touchless-home-header">
         <a-card :bordered="false">
-          <img src="../../public/img/icons/atlas-logo.png" alt="Logo" />
+          <img src="../../public/img/atlas-logo.png" alt="Logo" />
         </a-card>
       </div>
     </a-layout-header>

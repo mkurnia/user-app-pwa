@@ -1,10 +1,10 @@
-const vueEnverywere = require('vue-enverywhere');
+const vueEnverywere = require("vue-enverywhere");
 
 module.exports = {
   publicPath: "./",
 
   pwa: {
-    name: 'Touchless Catalog',
+    name: "Touchless Catalog",
     themeColor: "#42b983",
     msTileColor: "#42b983",
     appleMobileWebAppCache: "yes",
@@ -14,8 +14,6 @@ module.exports = {
   },
 
   configureWebpack: {
-    plugins: [
-      new vueEnverywere({ filename: "env-vars.js" })
-    ],
-  },
+    plugins: [new vueEnverywere({ filename: "env-vars.js" })]
+  }
 };

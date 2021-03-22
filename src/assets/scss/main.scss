@@ -48,6 +48,12 @@ p, span {font-family: 'Inter', sans-serif;}
       background: $success-color;
     }
   }
+  &.status-offline {
+    color: $error-color;
+    &::before {
+      background: $error-color;
+    }
+  }
 }
 
 /* Loading */
@@ -112,6 +118,17 @@ p, span {font-family: 'Inter', sans-serif;}
     .ant-card {
       border-radius: 8px;
       overflow: hidden;
+    }
+    .touchless-empty-product {
+      padding-top: 70px;
+      padding-bottom: 70px;
+      img {
+        margin-bottom: 40px;
+      }
+      h3 {
+        font-weight: 600;
+        line-height: 30px;
+      }
     }
   }
   .ant-card-meta-detail {
@@ -251,6 +268,14 @@ p, span {font-family: 'Inter', sans-serif;}
   }
 }
 
+.catalog-layout {
+  .ant-page-header-back {
+    display: none;
+    opacity: 0;
+    margin: 0;
+    font-size: 0;
+  }
+}
 .defaut-layout {
   background-color: $white-color;
   height: 100%;

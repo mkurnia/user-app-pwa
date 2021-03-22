@@ -5,6 +5,7 @@ import VmNotFound from "../views/VmNotFound.vue";
 import Success from "../views/Success.vue";
 import Catalog from "../views/Catalog.vue";
 import Checkout from "../views/Checkout.vue";
+import PageNotFound from "../views/PageNotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -19,7 +20,7 @@ const routes = [
     }
   },
   {
-    path: "/success/:id",
+    path: "/success",
     name: "Success",
     component: Success,
     meta: {
@@ -46,12 +47,21 @@ const routes = [
     }
   },
   {
-    path: "/checkout/:id",
+    path: "/checkout",
     name: "Detail Pesanan",
     component: Checkout,
     meta: {
       layout: "AppLayoutCatalog",
       class: "checkout-layout"
+    }
+  },
+  {
+    path: "*",
+    name: "Page Not Found",
+    component: PageNotFound,
+    meta: {
+      layout: "AppLayoutDefault",
+      class: "defaut-layout"
     }
   }
 ];

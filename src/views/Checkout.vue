@@ -1,18 +1,23 @@
 <template>
   <a-layout-content>
+    <div class="touchless-loading" v-if="loading">
+      <span class="loading-spin"></span>
+    </div>
     <div style="background:#FFFFFF;" class="touchless-checkout mb-10">
       <a-card :bordered="false">
         <a-card-meta>
           <a-avatar
             style="border-radius: unset;width: 128px;height: auto;"
             slot="avatar"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+            :src="product.ProductImage"
           />
           <template slot="title">
-            <p class="m-0 font-16">Europe Street beat</p>
+            <p class="m-0 font-16">{{ product.ProductName }}</p>
           </template>
           <template slot="description">
-            <span class="text-red-text font-16">{{ "13000" | currency }}</span>
+            <span class="text-red-text font-16">{{
+              product.ProductPrice | currency
+            }}</span>
           </template>
         </a-card-meta>
       </a-card>
@@ -22,11 +27,17 @@
         <a-row>
           <a-col :span="12"><p class="m-0">Total</p></a-col>
           <a-col :span="12" class="text-right">
-            <span class="text-red-text font-16">{{ "13000" | currency }}</span>
+            <span class="text-red-text font-16">{{
+              product.ProductPrice | currency
+            }}</span>
           </a-col>
         </a-row>
       </a-card>
-      <a-button type="danger" class="ant-btn-danger font-16">
+      <a-button
+        type="danger"
+        class="ant-btn-danger font-16"
+        @click="handleSubmit"
+      >
         Bayar Dengan QRIS
       </a-button>
     </div>
@@ -34,30 +45,39 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "Checkout",
   data() {
     return {
       loading: false,
-      param: this.$route.params.id,
-      category: [
-        "All",
-        "Minuman",
-        "Makanan",
-        "Masker",
-        "Snack",
-        "Medic",
-        "Susu",
-        "Mie",
-        "Sayur",
-        "Dll"
-      ],
-      selectedCategory: "All"
+      product: {}
     };
   },
+  mounted() {
+    this.getDetailData();
+  },
   methods: {
-    handleCategory(val) {
-      this.selectedCategory = val;
+    ...mapActions(["showQr"]),
+    getDetailData() {
+      this.product = JSON.parse(localStorage.getItem("productDetail"));
+    },
+    async handleSubmit() {
+      const payload = {
+        TID: localStorage.getItem("productTid"),
+        BarCode: this.product.BarCode
+      };
+      try {
+        this.loading = true;
+        await this.showQr(payload);
+        this.$router.push("/success");
+      } catch (error) {
+        this.$message.error("Pembayaran gagal", 10);
+        throw error;
+      } finally {
+        this.loading = false;
+      }
     }
   }
 };

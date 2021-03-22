@@ -1,7 +1,7 @@
 <template>
   <a-layout-content class="touchless-default-layout">
     <div class="touchless-container pt-0">
-      <a-card :bordered="false" class="text-center">
+      <a-card :bordered="false" class="text-center pl-16 pr-16">
         <img src="../../public/img/scan-qr.gif" alt="QR Code" class="mb-0" />
         <h3 class="mb-16">Tinggal selangkah lagi!</h3>
         <p>
@@ -38,8 +38,12 @@ export default {
   name: "Success",
   data() {
     return {
-      vmCode: this.$route.params.id
+      vmCode: localStorage.getItem("vmCode")
     };
+  },
+  mounted() {
+    localStorage.removeItem("productDetail");
+    localStorage.removeItem("productTid");
   }
 };
 </script>

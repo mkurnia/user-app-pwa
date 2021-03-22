@@ -1,13 +1,21 @@
 <template>
   <a-layout-content>
     <div style="background:#FFFFFF;" class="touchless-location">
-      <a-card :bordered="false">
-        <h3 class="font-18">D'Arcici Hotel Sunter</h3>
+      <a-card :bordered="false" v-if="loading">
+        <a-skeleton :paragraph="{ rows: 2 }" active />
+      </a-card>
+      <a-card :bordered="false" v-else>
+        <h3 class="font-18">{{ machineInformation.MachineLocation }}</h3>
         <p class="text-grey font-14">
-          Jl. Sunter Permai Raya No.A1, RT.2/RW.12, Sunter Agung, Paradise, Kota
-          Jkt Utara, Daerah Khusus Ibukota Jakarta 14350
+          {{ machineInformation.MachineAddress }}
         </p>
-        <span class="touchless-status status-online">Online</span>
+        <span
+          class="touchless-status status-online"
+          v-if="machineInformation.MachineOnlineStatus === true"
+        >
+          Online
+        </span>
+        <span class="touchless-status status-offline" v-else>Offline</span>
       </a-card>
     </div>
     <div class="touchless-catalog-list">
@@ -27,31 +35,44 @@
         </a-space>
         <a-row :gutter="16" v-if="!loading" type="flex">
           <a-col
+            :span="24"
+            v-if="isEmpty"
+            class="text-center touchless-empty-product"
+          >
+            <img src="/img/img-vm-empty.png" alt="produk tidak tersedia" />
+            <h3 class="mb-16">Produk Tidak Tersedia</h3>
+            <p>Maaf, produk belum tersedia di kota kamu :(</p>
+          </a-col>
+          <a-col
             :span="12"
-            v-for="(item, index) in 10"
+            v-for="(item, index) in listProduct"
             :key="index"
             class="pb-13"
+            v-else
           >
-            <router-link to="/">
-              <a-card hoverable align="left" style="height: 100%; border: 0">
-                <!-- -->
-                <img
-                  slot="cover"
-                  alt="example"
-                  src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                />
-                <a-card-meta>
-                  <template slot="title">
-                    <p class="m-0 font-14">Europe Street beat</p>
-                  </template>
-                  <template slot="description">
-                    <span class="text-red-text font-16">{{
-                      "13000" | currency
-                    }}</span>
-                  </template>
-                </a-card-meta>
-              </a-card>
-            </router-link>
+            <a-card
+              hoverable
+              align="left"
+              style="height: 100%; border: 0"
+              @click="handleClickProduct(item.BarCode)"
+            >
+              <img
+                slot="cover"
+                :alt="item.ProductName"
+                :src="item.ProductImage"
+                onerror="if (this.src != '/img/img-placeholder.png') this.src = '/img/img-placeholder.png';"
+              />
+              <a-card-meta>
+                <template slot="title">
+                  <p class="m-0 font-14">{{ item.ProductName }}</p>
+                </template>
+                <template slot="description">
+                  <span class="text-red-text font-16">{{
+                    item.ProductPrice | currency
+                  }}</span>
+                </template>
+              </a-card-meta>
+            </a-card>
           </a-col>
         </a-row>
         <a-row :gutter="16" v-else>
@@ -71,30 +92,84 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "Catalog",
   data() {
     return {
       loading: false,
       param: this.$route.params.id,
-      category: [
-        "All",
-        "Minuman",
-        "Makanan",
-        "Masker",
-        "Snack",
-        "Medic",
-        "Susu",
-        "Mie",
-        "Sayur",
-        "Dll"
-      ],
-      selectedCategory: "All"
+      category: ["All"],
+      product: [],
+      selectedCategory: "All",
+      machineInformation: {
+        MachineAddress: "",
+        MachineLocation: "",
+        MachineOnlineStatus: false
+      },
+      isEmpty: true
     };
   },
+  computed: {
+    listProduct() {
+      const data = this.product;
+      let result = [];
+
+      if (this.selectedCategory !== "All") {
+        result = data.filter(
+          item => item.CategoryParent === this.selectedCategory
+        );
+      } else {
+        result = data;
+      }
+
+      return result;
+    }
+  },
+  watch: {
+    listProduct(val) {
+      if (val.length) {
+        this.isEmpty = false;
+      } else {
+        this.isEmpty = true;
+      }
+    }
+  },
+  mounted() {
+    this.getDataVm(this.$route.params.id);
+  },
   methods: {
+    ...mapActions(["getVmData"]),
+    async getDataVm(vmId) {
+      try {
+        this.loading = true;
+        const { data } = await this.getVmData({ deviceCode: vmId });
+        this.machineInformation = data.machine;
+        this.product = data.products;
+        this.category.push(...data.categories);
+      } catch (error) {
+        this.$message.error("Data tidak ditemukan", 10);
+        throw error;
+      } finally {
+        this.loading = false;
+      }
+    },
     handleCategory(val) {
       this.selectedCategory = val;
+    },
+    handleClickProduct(barcode) {
+      const data = this.product;
+      const result = data.filter(
+        item => item.BarCode.toUpperCase() === barcode.toUpperCase()
+      );
+
+      localStorage.setItem("productDetail", JSON.stringify(...result));
+      localStorage.setItem("vmCode", this.param);
+      localStorage.setItem("productTid", this.machineInformation.TID);
+      localStorage.removeItem("responseStatus");
+      localStorage.removeItem("catalogData");
+      this.$router.push("/checkout");
     }
   }
 };

@@ -47,18 +47,21 @@ export default {
       vmCode: ""
     };
   },
+  mounted() {
+    localStorage.clear();
+  },
   methods: {
     ...mapActions(["getVmData"]),
     async checkVm() {
       try {
         this.loading = true;
         const data = await this.getVmData({ deviceCode: this.vmCode });
-        console.log(data);
 
-        this.$router.push(`catalog/${this.vmCode}`);
+        if (data.status === 200) {
+          this.$router.push(`catalog/${this.vmCode}`);
+        }
       } catch (error) {
         this.$router.push("vm-not-found");
-        throw error;
       } finally {
         this.loading = false;
       }

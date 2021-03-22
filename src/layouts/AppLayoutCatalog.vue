@@ -1,10 +1,12 @@
 <template>
-  <a-layout>
+  <a-layout :class="classLayout">
     <a-affix>
       <a-layout-header>
         <a-page-header class="touchless-page-heading" @back="() => null">
           <template slot="backIcon">
-            <router-link to="/"><a-icon type="arrow-left"/></router-link>
+            <router-link to="/" @click.native="handleBack">
+              <a-icon type="arrow-left" />
+            </router-link>
           </template>
           <template slot="title">
             <h4 class="m-0 font-16">{{ routeName }}</h4>
@@ -22,8 +24,19 @@ export default {
   name: "AppLayoutCatalog",
   data() {
     return {
-      routeName: this.$route.name
+      routeName: this.$route.name,
+      classLayout: this.$route.meta.class,
+      vmCode: localStorage.getItem("vmCode")
     };
+  },
+  methods: {
+    handleBack() {
+      if (this.classLayout === "checkout-layout") {
+        this.$router.push(`/catalog/${this.vmCode}`);
+      } else {
+        this.$router.push("/");
+      }
+    }
   }
 };
 </script>
